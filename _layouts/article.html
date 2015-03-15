@@ -61,13 +61,11 @@
             </div>
 
             <!-- keywords -->
-            {% if page.keywords %}
                 <div id="keywords" itemprop="keywords" clas="inline-list">
                     {% for keyword in keywords %}
                         <span>{{ keyword }}</span>
                     {% endfor %}
                 </div>
-            {% endif %}
 
             <!-- sections -->
             {% for section in site.sections %}
@@ -83,7 +81,6 @@
 
         <!-- side column -->
         <div class="column" id="sidebar">
-            {% if page.doi %}
                 <!-- metrics -->
                 <aside id="metrics" class="hidden-print">
                     <!--<h2>Metrics</h2>-->
@@ -96,9 +93,7 @@
 
                     <script src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js" async></script>
                 </aside>
-            {% endif %}
 
-            {% if page.date %}
                 <!-- publication date -->
                 <div id="published">
                     <h2>Published</h2>
@@ -106,15 +101,12 @@
                         <time itemprop="datePublished" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %-d, %Y' }}</time>
                     </div>
                 </div>
-            {% endif %}
 
-            {% if page.doi %}
                 <!-- doi -->
                 <div id="doi">
                     <h2>DOI</h2>
                     <div><a href="https://dx.doi.org/{{ page.doi }}" itemprop="sameAs">{{ page.doi }}</a></div>
                 </div>
-            {% endif %}
 
             <!-- authors -->
             <div id="authors">
@@ -132,23 +124,11 @@
                 {% endfor %}
             </div>
 
-            <!-- tables -->
-            <div id="tables">
-                <h2>Tables</h2>
-                {% for item in site.tables %}
-                    <div id="table-{{ forloop.index }}">
-                        {{ item.output }}
-                    </div>
-                {% endfor %}
-            </div>
-
             <!-- acknowledgements -->
-            {% if page.acknowledgements %}
                 <div id="acknowledgements">
                     <h2>Acknowledgements</h2>
                     {{ page.acknowledgements | markdownify }}
                 </div>
-            {% endif %}
 
             <!-- references -->
             <section id="references">
