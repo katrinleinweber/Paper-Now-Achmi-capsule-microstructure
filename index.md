@@ -17,9 +17,9 @@ authors:
   - name: Peter G Kroth
     email: peter.kroth@uni-konstanz.de
     affiliations:
-      - address: Department, Institution, City, Postal Code, Country
-        url: http://cms.uni-konstanz.de/algae/
       - address: Department of Biology, University of Konstanz, 78457, Germany
+        url: http://cms.uni-konstanz.de/algae/
+
     funders:
       - name: University of Konstanz
         url: http://www.uni-konstanz.de/
