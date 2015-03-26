@@ -9,16 +9,16 @@ authors:
     url: https://github.com/katrinleinweber
     affiliations:
       - address: Department of Biology, University of Konstanz, 78457, Germany
-	    url: http://cms.uni-konstanz.de/algae/
+        url: http://cms.uni-konstanz.de/algae/
     funders:
-        - name: Konstanz Research School Chemical Biology
-          url: http://chembiol.uni-konstanz.de/
-          doi:
-          awards: [ GSC 218 ]
-        - name: Zukunftskolleg at the University of Konstanz
-          url: https://www.zukunftskolleg.uni-konstanz.de/
-          doi:
-          awards:
+      - name: Konstanz Research School Chemical Biology
+        url: http://chembiol.uni-konstanz.de/
+        doi:
+        awards: [ GSC 218 ]
+      - name: Zukunftskolleg at the University of Konstanz
+        url: https://www.zukunftskolleg.uni-konstanz.de/
+        doi:
+        awards:
       - name: University of Konstanz
         url: http://www.uni-konstanz.de/
         doi:
