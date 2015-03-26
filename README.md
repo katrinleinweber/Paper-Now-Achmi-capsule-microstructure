@@ -1,4 +1,8 @@
-# Paper Now
+# Capsules of the diatom *Achnanthidium minutissimum* arise from fibrillar precursors and foster attachment of bacteria
+
+This is an experimental [Paper Now](https://github.com/PeerJ/paper-now) version of [this PeerJ article](https://peerj.com/articles/858/). No guarantees are given for the correctness or completeness of this experimental version.
+
+# Paper Now README
 
 Create, edit and (optionally) display a journal article, entirely in GitHub.
 
