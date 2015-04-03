@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Capsules of the diatom *Achnanthidium minutissimum* arise from fibrillar precursors and foster attachment of bacteria"
-doi: 10.7287/peerj.preprints.735v1
+doi: 10.7717/peerj.858
 date: 2015-03-26
 authors:
   - name: Katrin Leinweber
