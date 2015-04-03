@@ -115,6 +115,7 @@
             </div>
 
             <!-- figures -->
+            {% if site.figures %}
             <div id="figures">
                 <h2>Figures</h2>
                 {% for item in site.figures %}
@@ -123,6 +124,19 @@
                     </div>
                 {% endfor %}
             </div>
+            {% endif %}
+
+            <!-- tables -->
+            {% if site.tables %}
+            <div id="tables">
+                <h2>Tables</h2>
+                {% for item in site.tables %}
+                    <div id="table-{{ forloop.index }}">
+                        {{ item.output }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
 
             <!-- acknowledgements -->
                 <div id="acknowledgements">
