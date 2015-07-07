@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- metadata -->
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic">
+    <link rel="stylesheet" href="{{ site.baseurl }}/article.css">
+
+    <!-- MathJax config -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            messageStyle: "none",
+            "HTML-CSS": {
+                linebreaks: { automatic: true },
+                scale: 80
+            },
+            menuSettings: {
+                zoom: "Click"
+            }
+        });
+    </script>
+
+    <!-- scripts -->
+    {% for javascript in site.javascripts %}
+        <script src="{{ javascript[1] }}"></script>
+    {% endfor %}
+
+    <script src="article.js"></script>
+</head>
+<body>
+    <!-- article -->
+    <article itemscope itemtype="http://schema.org/ScholarlyArticle">
+        <meta itemprop="name" content="{{ page.title }}">
+
+        <!-- main column -->
+        <div class="column" id="main">
+            <!-- header -->
+            <header>
+                <!-- title -->
+                {% capture title %}# {{ page.title }}{% endcapture %}
+                {{ title | markdownify }}
+
+                <!-- author names -->
+                <div id="authors-list" class="inline-list">
+                    {% for author in page.authors %}
+                        <span>{{ author.name }}</span>
+                    {% endfor %}
+                </div>
+            </header>
+
+            <!-- abstract -->
+            <div id="abstract" itemprop="description">
+                {{ page.abstract | markdownify }}
+            </div>
+
+            <!-- keywords -->
+                <div id="keywords" itemprop="keywords" clas="inline-list">
+                    {% for keyword in keywords %}
+                        <span>{{ keyword }}</span>
+                    {% endfor %}
+                </div>
+
+            <!-- sections -->
+            {% for section in site.sections %}
+                <section id="{{ section.title | slugify }}"
+                    {% if section.property %}itemprop="{{ section.property}}"{% endif %}>
+                    {% capture title %}## {{ section.title }}{% endcapture %}
+                    {{ title | markdownify }}
+
+                    {{ section.content }}
+                </section>
+            {% endfor %}
+        </div>
+
+        <!-- side column -->
+        <div class="column" id="sidebar">
+                <!-- metrics -->
+                <aside id="metrics" class="hidden-print">
+                    <!--<h2>Metrics</h2>-->
+
+                    <div class="altmetric-embed"
+                        data-badge-type="medium-donut"
+                        data-badge-details="below"
+                        data-hide-no-mentions="true"
+                        data-doi="{{ page.doi}}"></div>
+
+                    <script src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js" async></script>
+                </aside>
+
+                <!-- publication date -->
+                <div id="published">
+                    <h2>Published</h2>
+                    <div>
+                        <time itemprop="datePublished" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %-d, %Y' }}</time>
+                    </div>
+                </div>
+
+                <!-- doi -->
+                <div id="doi">
+                    <h2>DOI</h2>
+                    <div><a href="https://dx.doi.org/{{ page.doi }}" itemprop="sameAs">{{ page.doi }}</a></div>
+                </div>
+
+            <!-- authors -->
+            <div id="authors">
+                <h2>Authors</h2>
+                {% include authors.html %}
+            </div>
+
+            <!-- figures -->
+            {% if site.figures %}
+            <div id="figures">
+                <h2>Figures</h2>
+                {% for item in site.figures %}
+                    <div id="figure-{{ forloop.index }}">
+                        {{ item.output }}
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- tables -->
+            {% if site.tables %}
+            <div id="tables">
+                <h2>Tables</h2>
+                {% for item in site.tables %}
+                    <div id="table-{{ forloop.index }}">
+                        {{ item.output }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- acknowledgements -->
+                <div id="acknowledgements">
+                    <h2>Acknowledgements</h2>
+                    {{ page.acknowledgements | markdownify }}
+                </div>
+
+            <!-- references -->
+            <section id="references">
+                <h2>References</h2>
+                {% capture references %}{% include_relative references.md %}{% endcapture %}
+                {{ references | markdownify }}
+            </section>
+        </div>
+    </article>
+</body>
+</html>
